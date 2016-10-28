@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{32BCB3E2-E5B0-6EA5-AD36-F670830825C3}</ProjectGuid>
+    <ProjectGuid>{317C76C4-19D3-CDBE-D6C1-135DD26876A2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,11 +45,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Marine\Scripts\AiRandom.cs" />
      <Compile Include="Assets\Marine\Scripts\CharacMove.cs" />
-     <Compile Include="Assets\Marine\Scripts\EnergyBank.cs" />
-     <Compile Include="Assets\Marine\Scripts\PlayerEnergyBank.cs" />
-     <Compile Include="Assets\Marine\Scripts\PlayerInfluence.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée GuillaumeI\CubeReturnToPoint.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée GuillaumeI\PickupItem.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée GuillaumeI\TimeStop.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée Marine\AiRandom.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée Marine\EnergyBank.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée Marine\PlayerEnergyBank.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée Marine\PlayerInfluence.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\SoftNormalsToVertexColor.cs" />
@@ -338,7 +341,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{7A845C02-5A66-06D9-34F5-CD4C66148A60}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{9FE9805F-38E3-F184-4609-8B1D47EC2A46}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
