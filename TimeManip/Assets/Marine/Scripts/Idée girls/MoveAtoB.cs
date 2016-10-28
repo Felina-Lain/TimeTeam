@@ -1,0 +1,26 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class MoveAtoB : MonoBehaviour {
+
+		private bool dirRight = true;
+		public float speed = 2.0f;
+		public float maxX;
+		public float minX;
+		
+		void Update ()
+	{
+		if (dirRight)
+			transform.Translate (Vector2.right * speed * Time.deltaTime);
+		else
+			transform.Translate (-Vector2.right * speed * Time.deltaTime);
+
+		if (transform.position.x >= maxX) {
+			dirRight = false;
+		}
+
+		if (transform.position.x <= minX) {
+			dirRight = true;
+		}
+	}
+}

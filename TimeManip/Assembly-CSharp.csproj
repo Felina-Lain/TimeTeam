@@ -53,6 +53,7 @@
      <Compile Include="Assets\Marine\Scripts\Idée Marine\EnergyBank.cs" />
      <Compile Include="Assets\Marine\Scripts\Idée Marine\PlayerEnergyBank.cs" />
      <Compile Include="Assets\Marine\Scripts\Idée Marine\PlayerInfluence.cs" />
+     <Compile Include="Assets\Marine\Scripts\Idée girls\MoveAtoB.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
      <Compile Include="Assets\ShaderForge\Example Assets\Scripts\SoftNormalsToVertexColor.cs" />

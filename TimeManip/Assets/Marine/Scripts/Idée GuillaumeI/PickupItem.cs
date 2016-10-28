@@ -20,12 +20,14 @@ public class PickupItem : MonoBehaviour {
 		if(_is_carry){
 			if (_col == null)
 				return;
-			_col.GetComponent<CubeReturnToPoint> ().enabled = false;
+			_col.GetComponent<MoveAtoB> ().enabled = false;
+			//_col.GetComponent<CubeReturnToPoint> ().enabled = false;
 			_col.transform.parent = this.transform;
 			}
 		if(!_is_carry){
 			if (this.transform.GetChild (1) != null) {
-				this.transform.GetChild (1).GetComponent<CubeReturnToPoint> ().enabled = true;
+				//this.transform.GetChild (1).GetComponent<CubeReturnToPoint> ().enabled = true;
+				this.transform.GetChild (1).GetComponent<MoveAtoB> ().enabled = true;
 				this.transform.GetChild (1).transform.parent = null;
 				}
 			}
