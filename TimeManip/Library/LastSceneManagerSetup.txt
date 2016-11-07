@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "Assets/Marine/id\xE9e Guillaume.unity"
+- path: "Assets/Marine/id\xE9e girls.unity"
   isLoaded: 1
   isActive: 1
