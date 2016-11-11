@@ -36,7 +36,6 @@ C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Unity
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Mono.Cecil.Mdb.dll
-C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEngine.xml
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEditor.xml
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEngine.UI.xml
