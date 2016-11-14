@@ -13,7 +13,6 @@ public class RotateCam : MonoBehaviour {
 	private float xAngTemp = 0.0f; //temp variable for angle
 	private float yAngTemp = 0.0f;
 	public LayerMask _IgnoreUI;
-	public Toggle _reverse_toggle;
 
 	void Start() {
 		//Initialization our angles of camera
@@ -41,13 +40,8 @@ public class RotateCam : MonoBehaviour {
 					xAngle = xAngTemp + (secondpoint.x - firstpoint.x) * 180.0f / Screen.width;
 					yAngle = yAngTemp - (secondpoint.y - firstpoint.y) * 90.0f / Screen.height;
 					//Rotate camera
-					if (!_reverse_toggle.isOn) {
-						this.transform.rotation = Quaternion.Euler (yAngle, xAngle, 0.0f);
-					} else {
-						this.transform.rotation = Quaternion.Euler (-yAngle, xAngle, 0.0f);
+					this.transform.rotation = Quaternion.Euler (-yAngle, xAngle, 0.0f);
 					}
 				}
-			}
-	}
-		
-}
+		}
+}	
