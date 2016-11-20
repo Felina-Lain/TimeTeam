@@ -13,6 +13,8 @@ public class RotateCam : MonoBehaviour {
 	private float xAngTemp = 0.0f; //temp variable for angle
 	private float yAngTemp = 0.0f;
 	public LayerMask _IgnoreUI;
+	public float clampmax;
+	public float clampmin;
 
 	void Start() {
 		//Initialization our angles of camera
@@ -37,10 +39,11 @@ public class RotateCam : MonoBehaviour {
 				if (Input.GetTouch (0).phase == TouchPhase.Moved) {
 					secondpoint = Input.GetTouch (0).position;
 					//Mainly, about rotate camera. For example, for Screen.width rotate on 180 degree
-					xAngle = xAngTemp + (secondpoint.x - firstpoint.x) * 180.0f / Screen.width;
-					yAngle = yAngTemp - (secondpoint.y - firstpoint.y) * 90.0f / Screen.height;
+				xAngle = xAngTemp + (secondpoint.x - firstpoint.x) * 135 / Screen.width;
+				yAngle = yAngTemp - (secondpoint.y - firstpoint.y) * 90 / Screen.height;
 					//Rotate camera
 					this.transform.rotation = Quaternion.Euler (-yAngle, xAngle, 0.0f);
+					//clamp rotation to find
 					}
 				}
 		}
