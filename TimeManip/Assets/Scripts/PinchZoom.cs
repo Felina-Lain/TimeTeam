@@ -27,6 +27,8 @@ public class PinchZoom : MonoBehaviour {
 
 			GetComponent<Camera>().fieldOfView += deltaMagnitudeDiff * perspectiveZoom;
 			GetComponent<Camera>().fieldOfView = Mathf.Clamp (GetComponent<Camera>().fieldOfView, 10f, 60f); 
+			GetComponent<Camera>().orthographicSize += deltaMagnitudeDiff * perspectiveZoom;
+			GetComponent<Camera>().orthographicSize = Mathf.Clamp (GetComponent<Camera>().orthographicSize, 45f, 150f); 
 		}
 
 

@@ -13,8 +13,6 @@ public class RotateCam : MonoBehaviour {
 	private float xAngTemp = 0.0f; //temp variable for angle
 	private float yAngTemp = 0.0f;
 	public LayerMask _IgnoreUI;
-	public float clampmax;
-	public float clampmin;
 
 	void Start() {
 		//Initialization our angles of camera
