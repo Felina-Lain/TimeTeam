@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MoveToWaypoints.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TimeZoneAction.cs">
     <Files>
-      <File FileName="Assets\Scripts\MoveToWaypoints.cs" Line="26" Column="18" />
+      <File FileName="Assets\Scripts\TimeZoneAction.cs" Line="18" Column="3" />
+      <File FileName="Assets\Scripts\TimeZone.cs" Line="7" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

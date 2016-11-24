@@ -42,6 +42,7 @@ public class DragOnMouse : MonoBehaviour {
 		{
 			//turn off camera rotation
 			maincam.GetComponent<RotateCam>().enabled = false;
+			maincam.GetComponent<TimeZone>().enabled = false;
 			// move the object with mouse
 			transform.position = mPosWorld - delta;
 		}
@@ -51,6 +52,7 @@ public class DragOnMouse : MonoBehaviour {
 		{	
 			//turn on camera rotation
 			maincam.GetComponent<RotateCam>().enabled = true;
+			maincam.GetComponent<TimeZone>().enabled = true;
 			//turn off drag
 			dragState = 0;
 		}
