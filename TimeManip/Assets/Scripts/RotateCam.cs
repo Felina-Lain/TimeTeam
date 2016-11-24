@@ -14,6 +14,9 @@ public class RotateCam : MonoBehaviour {
 	private float yAngTemp = 0.0f;
 	public LayerMask _IgnoreUI;
 
+	public float clampMin;
+	public float clampMax;
+
 	void Start() {
 		//Initialization our angles of camera
 		xAngle = 0.0f;
@@ -39,9 +42,11 @@ public class RotateCam : MonoBehaviour {
 					//Mainly, about rotate camera. For example, for Screen.width rotate on 180 degree
 				xAngle = xAngTemp + (secondpoint.x - firstpoint.x) * 135 / Screen.width;
 				yAngle = yAngTemp - (secondpoint.y - firstpoint.y) * 90 / Screen.height;
-					//Rotate camera
-					this.transform.rotation = Quaternion.Euler (-yAngle, xAngle, 0.0f);
-					//clamp rotation to find
+				//clamp rotation to find
+				yAngle = Mathf.Clamp(yAngle, clampMin, clampMax);
+				//Rotate camera
+				this.transform.rotation = Quaternion.Euler (-yAngle, xAngle, 0.0f);
+					
 					}
 				}
 		}

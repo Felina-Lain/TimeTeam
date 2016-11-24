@@ -7,11 +7,13 @@ public class DragOnMouse : MonoBehaviour {
 	Vector3 delta;
 	Vector3 startPos;
 	int dragState = 0;
+	public GameObject maincam;
 
 
 	public void Start()
 	{
 		dragState = 0;
+		maincam = GameObject.FindWithTag ("CameraPivot");
 
 	}
 
@@ -38,6 +40,8 @@ public class DragOnMouse : MonoBehaviour {
 		// drag the object if enabled
 		if(dragState == 1)
 		{
+			//turn off camera rotation
+			maincam.GetComponent<RotateCam>().enabled = false;
 			// move the object with mouse
 			transform.position = mPosWorld - delta;
 		}
@@ -45,6 +49,9 @@ public class DragOnMouse : MonoBehaviour {
 		// end drag
 		if(dragState == 1 && Input.GetMouseButtonUp(0))
 		{	
+			//turn on camera rotation
+			maincam.GetComponent<RotateCam>().enabled = true;
+			//turn off drag
 			dragState = 0;
 		}
 	}
