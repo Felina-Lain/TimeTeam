@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RotateCam.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MoveToWaypoints.cs">
     <Files>
-      <File FileName="Assets\Scripts\RotateCam.cs" Line="46" Column="27" />
+      <File FileName="Assets\Scripts\MoveToWaypoints.cs" Line="26" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

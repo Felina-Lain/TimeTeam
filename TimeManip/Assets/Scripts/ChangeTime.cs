@@ -8,13 +8,13 @@ public class ChangeTime : MonoBehaviour{
 	public float timerSpeed;
 
 	public Slider slide;
-	public float reverseByTime;
+	//public float reverseByTime;
 
 
 	void Update () {
-		if (Time.timeScale != 1f) {
-			reverseByTime = (1 / Time.timeScale) * 10;
-		}
+		//if (Time.timeScale != 1f) {
+		//	reverseByTime = (1 / Time.timeScale) * 10;
+		//}
 
 		Time.timeScale = Mathf.Lerp(Time.timeScale, slide.value, transitionIn);
 		if (!Input.GetMouseButton(0))
