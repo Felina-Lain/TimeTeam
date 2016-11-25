@@ -5,6 +5,7 @@ public class TimeZoneAction : MonoBehaviour {
 
 	private float lifeTime;
 	public float _lifeTime;
+	public float _influence;
 
 	void Start () {
 
@@ -15,7 +16,10 @@ public class TimeZoneAction : MonoBehaviour {
 
 	void OnTriggerExit (Collider _col) {
 
+		if (_col.name.Contains ("Cube")) {
 
+			_col.GetComponent<MoveToWaypoints>()._speedA = 0f;
+		}
 	
 	}
 	
@@ -23,6 +27,10 @@ public class TimeZoneAction : MonoBehaviour {
 	void OnTriggerStay (Collider _col) {
 
 
+		if (_col.name.Contains ("Cube")) {
+
+			_col.GetComponent<MoveToWaypoints>()._speedA = _influence * 100;
+		}
 
 	}
 

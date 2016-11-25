@@ -7,7 +7,7 @@ public class MoveToWaypoints : MonoBehaviour {
 	[HideInInspector]
 	public int markcount;
 	public static float speed;
-	public float _speed;
+	public float _speedA;
 	public List<Transform> targets = new List<Transform>();
 	[SerializeField]
 	private bool m_bDebug = false; 
@@ -23,9 +23,8 @@ public class MoveToWaypoints : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-		_speed = speed;
 
-		float step = speed * Time.deltaTime;
+		float step = (speed + _speedA) * Time.deltaTime;
 		this.transform.position = Vector3.MoveTowards(this.transform.position, targets[markcount + 1].transform.position, step);
 
 	}
