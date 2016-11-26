@@ -40,7 +40,8 @@ public class DragOnMouse : MonoBehaviour {
 		// drag the object if enabled
 		if(dragState == 1)
 		{
-			//turn off camera rotation
+			//turn off some scripts
+			this.GetComponent<MoveToWaypoints>().enabled = false;
 			maincam.GetComponent<RotateCam>().enabled = false;
 			maincam.GetComponent<TimeZone>().enabled = false;
 			// move the object with mouse
@@ -50,7 +51,8 @@ public class DragOnMouse : MonoBehaviour {
 		// end drag
 		if(dragState == 1 && Input.GetMouseButtonUp(0))
 		{	
-			//turn on camera rotation
+			//turn the offed scripts
+			this.GetComponent<MoveToWaypoints>().enabled = true;
 			maincam.GetComponent<RotateCam>().enabled = true;
 			maincam.GetComponent<TimeZone>().enabled = true;
 			//turn off drag

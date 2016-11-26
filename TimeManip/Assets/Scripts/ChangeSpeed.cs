@@ -16,8 +16,8 @@ public class ChangeSpeed : MonoBehaviour{
 
 		MoveToWaypoints.speed = (Mathf.Lerp(MoveToWaypoints.speed, slide.value, transitionIn)) * speedCoef;
 
-		if (!Input.GetMouseButton(0))
-			StartCoroutine(OnSliderRelease());		
+		//if (!Input.GetMouseButton(0))
+			//StartCoroutine(OnSliderRelease());		
 	}
 
 	IEnumerator OnSliderRelease () {
