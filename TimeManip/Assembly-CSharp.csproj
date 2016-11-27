@@ -48,16 +48,6 @@
      <Compile Include="Assets\Scripts\ChangeSpeed.cs" />
      <Compile Include="Assets\Scripts\DragOnMouse.cs" />
      <Compile Include="Assets\Scripts\MoveToWaypoints.cs" />
-     <Compile Include="Assets\Scripts\Old\ChangeTime.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée GuillaumeI\CubeReturnToPoint.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée GuillaumeI\PickupItem.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée GuillaumeI\TimeStop.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée Marine\AiRandom.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée Marine\CharacMove.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée Marine\EnergyBank.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée Marine\PlayerEnergyBank.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée Marine\PlayerInfluence.cs" />
-     <Compile Include="Assets\Scripts\Old\Idée girls\MoveAtoB.cs" />
      <Compile Include="Assets\Scripts\PinchZoom.cs" />
      <Compile Include="Assets\Scripts\RotateCam.cs" />
      <Compile Include="Assets\Scripts\TimeZone.cs" />

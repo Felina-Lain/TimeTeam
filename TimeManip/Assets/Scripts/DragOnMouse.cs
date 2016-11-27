@@ -9,6 +9,8 @@ public class DragOnMouse : MonoBehaviour {
 	int dragState = 0;
 	public GameObject maincam;
 
+	private Vector3 targetPosition;
+	private Vector3 startPosition;
 
 	public void Start()
 	{
@@ -41,10 +43,21 @@ public class DragOnMouse : MonoBehaviour {
 		if(dragState == 1)
 		{
 			//turn off some scripts
-			this.GetComponent<MoveToWaypoints>().enabled = false;
+			if (this.name.Contains ("Cubepatternfixe")) {
+				this.GetComponent<MoveToWaypoints> ().enabled = false;
+			}
 			maincam.GetComponent<RotateCam>().enabled = false;
 			maincam.GetComponent<TimeZone>().enabled = false;
-			// move the object with mouse
+			//record position
+			startPosition= Input.mousePosition;
+			//move the object and pattern if needed
+			if(this.name.Contains("Cubepatternmove")){
+
+				this.transform.parent.transform.position =  mPosWorld - delta;
+
+			}
+
+			// move the object with mouse if normal
 			transform.position = mPosWorld - delta;
 		}
 
@@ -52,11 +65,20 @@ public class DragOnMouse : MonoBehaviour {
 		if(dragState == 1 && Input.GetMouseButtonUp(0))
 		{	
 			//turn the offed scripts
-			this.GetComponent<MoveToWaypoints>().enabled = true;
+			if (this.name.Contains ("Cubepatternfixe")) {
+				this.GetComponent<MoveToWaypoints> ().enabled = true;
+			}
 			maincam.GetComponent<RotateCam>().enabled = true;
 			maincam.GetComponent<TimeZone>().enabled = true;
+
+			//throw the item
+			targetPosition = Input.mousePosition;
+			Vector3 direction = (targetPosition - startPosition);
+			//direction.Normalize();
+			GetComponent<Rigidbody>().AddForce(direction * 150000000000000f, ForceMode.Impulse);
 			//turn off drag
 			dragState = 0;
 		}
 	}
+
 }
