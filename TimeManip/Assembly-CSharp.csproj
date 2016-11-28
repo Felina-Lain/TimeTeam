@@ -45,13 +45,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ChangeSpeed.cs" />
-     <Compile Include="Assets\Scripts\DragOnMouse.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\IsoDrag.cs" />
      <Compile Include="Assets\Scripts\MoveToWaypoints.cs" />
+     <Compile Include="Assets\Scripts\Old\ChangeSpeed.cs" />
+     <Compile Include="Assets\Scripts\Old\DragOnMouse.cs" />
+     <Compile Include="Assets\Scripts\Old\TimeZone.cs" />
+     <Compile Include="Assets\Scripts\Old\TimeZoneAction.cs" />
      <Compile Include="Assets\Scripts\PinchZoom.cs" />
      <Compile Include="Assets\Scripts\RotateCam.cs" />
-     <Compile Include="Assets\Scripts\TimeZone.cs" />
-     <Compile Include="Assets\Scripts\TimeZoneAction.cs" />
      <Compile Include="Assets\Scripts\Waypoint.cs" />
      <None Include="Assets\Materials\edge glow.shader" />
  <Reference Include="UnityEngine.UI">

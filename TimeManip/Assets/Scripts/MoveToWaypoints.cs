@@ -24,7 +24,7 @@ public class MoveToWaypoints : MonoBehaviour {
 	void Update()
 	{
 
-		float step = Mathf.Clamp((speed + _speedA),0,Mathf.Infinity) * Time.deltaTime;
+		float step = Mathf.Clamp((/*speed + */_speedA),0,Mathf.Infinity) * Time.deltaTime;
 		this.transform.position = Vector3.MoveTowards(this.transform.position, targets[markcount + 1].transform.position, step);
 
 	}
