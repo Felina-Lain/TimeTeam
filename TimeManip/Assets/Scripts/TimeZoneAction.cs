@@ -16,7 +16,7 @@ public class TimeZoneAction : MonoBehaviour {
 
 	void OnTriggerExit (Collider _col) {
 
-		if (_col.name.Contains ("Cube")) {
+		if (_col.name.Contains ("Cube") && !_col.name.Contains("fixe")) {
 
 			_col.GetComponent<MoveToWaypoints>()._speedA = 0f;
 		}
@@ -27,7 +27,7 @@ public class TimeZoneAction : MonoBehaviour {
 	void OnTriggerStay (Collider _col) {
 
 
-		if (_col.name.Contains ("Cube")) {
+		if (_col.name.Contains ("Cube") && !_col.name.Contains("fixe")) {
 
 			_col.GetComponent<MoveToWaypoints>()._speedA = _influence * 100;
 		}

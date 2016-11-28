@@ -53,12 +53,13 @@ public class DragOnMouse : MonoBehaviour {
 			//move the object and pattern if needed
 			if(this.name.Contains("Cubepatternmove")){
 
-				this.transform.parent.transform.position =  mPosWorld - delta;
-
+				//this.transform.parent.transform.position = new Vector3 (mPosWorld.x- delta.x, mPosWorld.y- delta.y, transform.position.z);
+				this.transform.parent.transform.position = mPosWorld- delta;
 			}
 
 			// move the object with mouse if normal
-			transform.position = mPosWorld - delta;
+			//transform.position = new Vector3 (mPosWorld.x- delta.x, mPosWorld.y- delta.y, transform.position.z);
+			transform.position = mPosWorld- delta;
 		}
 
 		// end drag
