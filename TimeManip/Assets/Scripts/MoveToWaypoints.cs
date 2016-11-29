@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System;
 
 public class MoveToWaypoints : MonoBehaviour {
 
@@ -31,18 +32,22 @@ public class MoveToWaypoints : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other)
-	{
-		if(m_bDebug)
-			Debug.Log("OnTriggerEnter with " + other.name); 
-		Waypoint wp = other.GetComponent<Waypoint>();
-		if (wp == null)
-			return;
-		if (m_bDebug)
-			Debug.Log("Collider " + other.name + "has a wp");
-		if (wp.waitHere)
-			StartCoroutine(GoToNextWaypoint(wp.waitingTime));
-		else
-			CalculateNextWaypoint();
+	{ 
+		for (int i = 0; i < targets.Count; i++) {
+			if (other.name == targets[i].name) {
+				if (m_bDebug)
+					Debug.Log ("OnTriggerEnter with " + other.name); 
+				Waypoint wp = other.GetComponent<Waypoint> ();
+				if (wp == null)
+					return;
+				if (m_bDebug)
+					Debug.Log ("Collider " + other.name + "has a wp");
+				if (wp.waitHere)
+					StartCoroutine (GoToNextWaypoint (wp.waitingTime));
+				else
+					CalculateNextWaypoint ();
+			}
+		}
 	}
 
 
