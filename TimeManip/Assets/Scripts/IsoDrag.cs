@@ -12,16 +12,14 @@ public class IsoDrag : MonoBehaviour {
 	private Vector3 mPos1;
 	private Vector3 mPosWorld1;
 
-	public Vector3[] touchPos = new Vector3[3];
-	[SerializeField]
-	private int touchTip;
+	public List<Vector3> touchPos = new List<Vector3>();
 
 	public void Start()
 	{
 		dragState = 0;
-		touchTip = 0;
 
 	}
+		
 
 	void Update()
 	{
@@ -32,10 +30,10 @@ public class IsoDrag : MonoBehaviour {
 		//	mPos1 = Input.GetTouch(0).position;
 
 		if(Input.GetMouseButton(0))
-     	{
-			
+     	{			
      	// get touch pos on this X-Y plane
 			mPos1 = Input.mousePosition;
+			//Camera.main.ScreenToWorldPoint (mPos1.x, mPos1.y, 15);
 			mPos1.z = Camera.main.transform.InverseTransformPoint(transform.position).z;
 			mPosWorld1 = Camera.main.ScreenToWorldPoint(mPos1);
 
@@ -67,12 +65,8 @@ public class IsoDrag : MonoBehaviour {
 			// move the object with mouse if normal
 			transform.position = new Vector3 (mPosWorld1.x - delta.x , transform.position.y , mPosWorld1.z - delta.z);
 
-
 			//store touch position for throw
-			touchPos[touchTip] = mPosWorld1;
-			touchTip++;
-			if (touchTip > 2) {
-				touchTip = 0;}
+			touchPos.Add(mPosWorld1);
 
 		}
 			
@@ -86,7 +80,7 @@ public class IsoDrag : MonoBehaviour {
 			if(!this.name.Contains ("fixe")) 
 			GetComponent<Rigidbody> ().isKinematic = false;
 
-			Vector3 direction = (touchPos[2] - touchPos[0]);
+			Vector3 direction = (touchPos[touchPos.Count-1] - touchPos[touchPos.Count-10]);
 			direction.Normalize();
 			GetComponent<Rigidbody>().AddForce(direction * 500f, ForceMode.Impulse);
 
@@ -97,10 +91,7 @@ public class IsoDrag : MonoBehaviour {
 			if (this.name.Contains ("Cubepattern")) {
 				this.GetComponent<MoveToWaypoints> ().enabled = true;
 				}
-			for ( int i = 0; i < touchPos.Length; i++)
-			{
-				touchPos[i] = new Vector3(0,0,0);
-			}
+			touchPos = new List<Vector3>();
 		}
 	}
 
