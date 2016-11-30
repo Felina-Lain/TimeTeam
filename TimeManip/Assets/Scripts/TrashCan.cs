@@ -11,11 +11,11 @@ public class TrashCan : MonoBehaviour {
 
 			GameObject _spawned = Instantiate (other.gameObject);
 			_spawned.transform.position = new Vector3 (103, 243, 13);
-			if (GameObject.Find (other.GetComponent<CubeManager> ().colorGroup) == null) {
+			if (GameObject.Find (other.GetComponent<CubeManager> ().myGroup.ToString()) == null) {
 				GameObject _go = new GameObject();
-				_go.name = other.GetComponent<CubeManager> ().colorGroup;
+				_go.name = other.GetComponent<CubeManager> ().myGroup.ToString();
 			}
-			_spawned.transform.parent = GameObject.Find (other.GetComponent<CubeManager> ().colorGroup).transform;
+			_spawned.transform.parent = GameObject.Find (other.GetComponent<CubeManager> ().myGroup.ToString()).transform;
 			Destroy (other.gameObject);
 
 		} else {

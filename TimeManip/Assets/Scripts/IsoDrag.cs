@@ -77,7 +77,7 @@ public class IsoDrag : MonoBehaviour {
 		if(dragState == 1 && Input.GetMouseButtonUp(0))
 		{	
 			//throw the item 
-			if (GetComponent<CubeManager> ().colorGroup != "Black Cubes") {
+			if (GetComponent<CubeManager> ().myGroup != CubeGroups.Black) {
 				GetComponent<Rigidbody> ().isKinematic = false;
 			}
 
