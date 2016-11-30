@@ -76,9 +76,10 @@ public class IsoDrag : MonoBehaviour {
 		// end drag
 		if(dragState == 1 && Input.GetMouseButtonUp(0))
 		{	
-			//throw the item
-			if(!this.name.Contains ("fixe")) 
-			GetComponent<Rigidbody> ().isKinematic = false;
+			//throw the item 
+			if (GetComponent<CubeManager> ().colorGroup != "Black Cubes") {
+				GetComponent<Rigidbody> ().isKinematic = false;
+			}
 
 			Vector3 direction = (touchPos[touchPos.Count-1] - touchPos[touchPos.Count-10]);
 			direction.Normalize();
