@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TrashCan : MonoBehaviour {
 
@@ -24,6 +25,14 @@ public class TrashCan : MonoBehaviour {
 			Destroy (other.gameObject);
 
 		} else {
+			if (other.GetComponent<CubeManager> ().myGroup == CubeGroups.Red) {
+
+				for( int i = 0; i < other.GetComponent<MoveToWaypoints>().targets.Count ; i++){
+
+					Destroy(other.GetComponent<MoveToWaypoints>().targets[i].gameObject);
+				}
+
+			}
 			Destroy (other.gameObject);
 		}
 	

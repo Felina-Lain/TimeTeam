@@ -21,6 +21,7 @@ public class IsoDrag : MonoBehaviour {
 	}
 		
 
+
 	void Update()
 	{
 		// check if we have one touch
@@ -36,14 +37,14 @@ public class IsoDrag : MonoBehaviour {
 			//Camera.main.ScreenToWorldPoint (mPos1.x, mPos1.y, 15);
 			mPos1.z = Camera.main.transform.InverseTransformPoint(transform.position).z;
 			mPosWorld1 = Camera.main.ScreenToWorldPoint(mPos1);
-
+		
 			// check if mouse is in bounds
 			if(GetComponent<Collider>().bounds.Contains(mPosWorld1))
 			{
 				dragState = 1;
 				startPos = transform.position;
 				delta = mPosWorld1 - transform.position;
-
+		
 			}
 		}
 
@@ -81,9 +82,11 @@ public class IsoDrag : MonoBehaviour {
 				GetComponent<Rigidbody> ().isKinematic = false;
 			}
 
-			Vector3 direction = (touchPos[touchPos.Count-1] - touchPos[touchPos.Count-10]);
-			direction.Normalize();
-			GetComponent<Rigidbody>().AddForce(direction * 500f, ForceMode.Impulse);
+			if (touchPos.Count > 11) {
+				Vector3 direction = (touchPos [touchPos.Count - 1] - touchPos [touchPos.Count - 10]);
+				direction.Normalize ();
+				GetComponent<Rigidbody> ().AddForce (direction * 500f, ForceMode.Impulse);
+			}
 
 			//turn off drag
 			dragState = 0;

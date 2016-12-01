@@ -35,7 +35,7 @@ public class MoveToWaypoints : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{ 
 		for (int i = 0; i < targets.Count; i++) {
-			if (other.name == targets[i].name) {
+			if (other.transform == targets[i].transform) {
 				if (m_bDebug)
 					Debug.Log ("OnTriggerEnter with " + other.name); 
 				Waypoint wp = other.GetComponent<Waypoint> ();
@@ -60,11 +60,14 @@ public class MoveToWaypoints : MonoBehaviour {
 
 	private void CalculateNextWaypoint()
 	{
-		if (m_bDebug)
-			Debug.Log("Calculate Waypoint entered");
+		if (m_bDebug) {
+			Debug.Log ("Calculate Waypoint entered");
+		}
 		markcount += 1;
+		print ("I reached here");
 		if (markcount == targets.Count - 1)
 		{
+			print ("I died here");
 			markcount = -1;
 		}
 
