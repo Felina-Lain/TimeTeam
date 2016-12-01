@@ -51,6 +51,8 @@
      <Compile Include="Assets\Scripts\MoveToWaypoints.cs" />
      <Compile Include="Assets\Scripts\PinchZoom.cs" />
      <Compile Include="Assets\Scripts\RotateCam.cs" />
+     <Compile Include="Assets\Scripts\SpawnWaypoints.cs" />
+     <Compile Include="Assets\Scripts\SpawnerCube.cs" />
      <Compile Include="Assets\Scripts\TrashCan.cs" />
      <Compile Include="Assets\Scripts\Waypoint.cs" />
      <None Include="Assets\Materials\edge glow.shader" />

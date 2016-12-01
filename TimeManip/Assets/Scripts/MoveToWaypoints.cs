@@ -5,8 +5,9 @@ using System;
 
 public class MoveToWaypoints : MonoBehaviour {
 
-	[HideInInspector]
+
 	public int markcount;
+	[HideInInspector]
 	public static float speed;
 	public float _speedA;
 	public List<Transform> targets = new List<Transform>();
