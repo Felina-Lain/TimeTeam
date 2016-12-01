@@ -4,7 +4,8 @@
     <Files>
       <File FileName="Assets\Scripts\SpawnWaypoints.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SpawnerCube.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MoveToWaypoints.cs" Line="45" Column="1" />
+      <File FileName="Assets\Scripts\MoveToWaypoints.cs" Line="30" Column="1" />
+      <File FileName="Assets\Scripts\CubeManager.cs" Line="33" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

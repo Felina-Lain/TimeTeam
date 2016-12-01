@@ -64,10 +64,10 @@ public class MoveToWaypoints : MonoBehaviour {
 			Debug.Log ("Calculate Waypoint entered");
 		}
 		markcount += 1;
-		print ("I reached here");
+		//print ("I reached here");
 		if (markcount == targets.Count - 1)
 		{
-			print ("I died here");
+			//print ("I died here");
 			markcount = -1;
 		}
 
