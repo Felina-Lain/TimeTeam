@@ -45,8 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CamLock.cs" />
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GyroCam.cs" />
      <Compile Include="Assets\Scripts\IsoDrag.cs" />
      <Compile Include="Assets\Scripts\MoveToWaypoints.cs" />
      <Compile Include="Assets\Scripts\PinchZoom.cs" />
