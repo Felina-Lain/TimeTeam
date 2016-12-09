@@ -45,18 +45,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CamLock.cs" />
+     <Compile Include="Assets\Scripts\Camera\CamLock.cs" />
+     <Compile Include="Assets\Scripts\Camera\GyroCam.cs" />
+     <Compile Include="Assets\Scripts\Camera\SensorFusion.cs" />
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\GyroCam.cs" />
      <Compile Include="Assets\Scripts\IsoDrag.cs" />
-     <Compile Include="Assets\Scripts\MoveToWaypoints.cs" />
-     <Compile Include="Assets\Scripts\PinchZoom.cs" />
-     <Compile Include="Assets\Scripts\RotateCam.cs" />
-     <Compile Include="Assets\Scripts\SpawnWaypoints.cs" />
+     <Compile Include="Assets\Scripts\OLD\PinchZoom.cs" />
+     <Compile Include="Assets\Scripts\OLD\RotateCam.cs" />
      <Compile Include="Assets\Scripts\SpawnerCube.cs" />
      <Compile Include="Assets\Scripts\TrashCan.cs" />
-     <Compile Include="Assets\Scripts\Waypoint.cs" />
+     <Compile Include="Assets\Scripts\Waypoints\MoveToWaypoints.cs" />
+     <Compile Include="Assets\Scripts\Waypoints\SpawnWaypoints.cs" />
+     <Compile Include="Assets\Scripts\Waypoints\Waypoint.cs" />
      <None Include="Assets\Materials\edge glow.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

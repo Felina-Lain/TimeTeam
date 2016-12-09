@@ -19,7 +19,7 @@ public class SpawnerCube : MonoBehaviour {
 				GameObject newcube = Instantiate (Resources.Load (_pathname, typeof(GameObject))) as GameObject;
 				newcube.GetComponent<CubeManager> ().startCube = false;
 				newcube.transform.tag = "temptag";
-				newcube.transform.position = new Vector3 (transform.position.x, 243, transform.position.z);
+				newcube.transform.position = new Vector3 (transform.position.x, 0, transform.position.z);
 			}
 		}
 	

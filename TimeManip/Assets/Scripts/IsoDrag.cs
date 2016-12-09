@@ -27,14 +27,15 @@ public class IsoDrag : MonoBehaviour {
 		// check if we have one touch
 		//if(Input.touchCount == 1)
 		//{
-		//	// get touch pos on this X-Y plane
-		//	mPos1 = Input.GetTouch(0).position;
+			// get touch pos on this X-Y plane
+			//mPos1 = Input.GetTouch(0).position;
 
 		if(Input.GetMouseButton(0))
      	{			
      	// get touch pos on this X-Y plane
 			mPos1 = Input.mousePosition;
 			//Camera.main.ScreenToWorldPoint (mPos1.x, mPos1.y, 15);
+
 			mPos1.z = Camera.main.transform.InverseTransformPoint(transform.position).z;
 			mPosWorld1 = Camera.main.ScreenToWorldPoint(mPos1);
 		
@@ -53,11 +54,11 @@ public class IsoDrag : MonoBehaviour {
 		{
 			GetComponent<Rigidbody> ().isKinematic = true;
 			//turn off some scripts
-			if (this.name.Contains ("Cubepattern")) {
+			if (this.name.Contains ("Red") ||this.name.Contains ("Green")  ) {
 				this.GetComponent<MoveToWaypoints> ().enabled = false;
 			}
 			//move the object and pattern if needed
-			if(this.name.Contains("Cubepatternmove")){
+			if(this.name.Contains("Green")){
 
 				this.transform.parent.transform.position = new Vector3 (mPosWorld1.x - delta.x, transform.parent.transform.position.y , mPosWorld1.z - delta.z);
 
@@ -85,14 +86,14 @@ public class IsoDrag : MonoBehaviour {
 			if (touchPos.Count > 11) {
 				Vector3 direction = (touchPos [touchPos.Count - 1] - touchPos [touchPos.Count - 10]);
 				direction.Normalize ();
-				GetComponent<Rigidbody> ().AddForce (direction * 500f, ForceMode.Impulse);
+				GetComponent<Rigidbody> ().AddForce (direction * 700f, ForceMode.Impulse);
 			}
 
 			//turn off drag
 			dragState = 0;
 
 			//turn the offed scripts
-			if (this.name.Contains ("Cubepattern")) {
+			if (this.name.Contains ("Red") ||this.name.Contains ("Green")  ){
 				this.GetComponent<MoveToWaypoints> ().enabled = true;
 				}
 			touchPos = new List<Vector3>();
