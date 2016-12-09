@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\Camera\CamLock.cs" />
      <Compile Include="Assets\Scripts\Camera\GyroCam.cs" />
      <Compile Include="Assets\Scripts\Camera\SensorFusion.cs" />
+     <Compile Include="Assets\Scripts\Camera\TiltCam.cs" />
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\IsoDrag.cs" />
