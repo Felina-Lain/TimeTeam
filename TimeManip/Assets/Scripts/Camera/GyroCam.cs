@@ -11,7 +11,7 @@ public class GyroCam : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.rotation = SensorFusion.GetOrientation();
+		transform.localRotation = SensorFusion.GetOrientation();
 	}
 
 	/*

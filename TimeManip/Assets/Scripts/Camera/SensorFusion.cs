@@ -3,84 +3,91 @@ using System.Collections;
 
 public class SensorFusion : MonoBehaviour
 {
-	static Vector3 accelerometer = new Vector3();
-	static Vector3 gyroscope = new Vector3();
-	static Quaternion filterToWorldQ = new Quaternion();
-	static Quaternion inverseWorldToScreenQ = new Quaternion();
-	static Quaternion worldToScreenQ = new Quaternion();
-	static Quaternion originalPoseAdjustQ = new Quaternion();
-	static Quaternion resetQ = new Quaternion();
-	static float previousTime;
+	public static SensorFusion instance;
 
-	const float PREDICTION_TIME = 0.040f;
+	public float predictionTime = 0.040f;
 
-	static int windowOrientation = 0;
-	static bool isLandscape = false;
+	Vector3 accelerometer = new Vector3();
+	Vector3 gyroscope = new Vector3();
+	Quaternion filterToWorldQ = new Quaternion();
+	Quaternion inverseWorldToScreenQ = new Quaternion();
+	Quaternion worldToScreenQ = new Quaternion();
+	Quaternion originalPoseAdjustQ = new Quaternion();
+	Quaternion resetQ = new Quaternion();
+	float previousTime;
 
-	static ComplementaryFilter filter;
-	static PosePredictor posePredictor;
+	int windowOrientation = 0;
+	bool isLandscape = false;
+
+	ComplementaryFilter filter;
+	PosePredictor posePredictor;
 
 	public static Quaternion GetOrientation()
 	{
-		Quaternion orientation = filter.GetOrientation();
+		Quaternion orientation = instance.filter.GetOrientation();
 
 		// Predict orientation.
-		Quaternion predictedQ = posePredictor.GetPrediction(orientation, gyroscope, previousTime);
+		Quaternion predictedQ = instance.posePredictor.GetPrediction(orientation, instance.gyroscope, instance.previousTime);
 
-		Quaternion o = filterToWorldQ;
-		o *= resetQ;
+		Quaternion o = instance.filterToWorldQ;
+		o *= instance.resetQ;
 		o *= predictedQ;
-		o *= worldToScreenQ;
+		o *= instance.worldToScreenQ;
 
 		return o;
 	}
 	public static void Recenter()
 	{
 		// Reduce to inverted yaw-only.
-		resetQ = filter.GetOrientation();
-		resetQ.x = 0;
-		resetQ.y = 0;
-		resetQ.z *= -1;
+		instance.resetQ = instance.filter.GetOrientation();
+		instance.resetQ.x = 0;
+		instance.resetQ.y = 0;
+		instance.resetQ.z *= -1;
 
 		// Take into account extra transformations in landscape mode.
-		if(isLandscape)
-			resetQ *= inverseWorldToScreenQ;
+		if(instance.isLandscape)
+			instance.resetQ *= instance.inverseWorldToScreenQ;
 
 		// Take into account original pose.
-		resetQ *= originalPoseAdjustQ;
+		instance.resetQ *= instance.originalPoseAdjustQ;
 	}
 	public static void SetScreenTransform()
 	{
-		worldToScreenQ = new Quaternion(0, 0, 0, 1);
-		switch(windowOrientation)
+		instance.worldToScreenQ = new Quaternion(0, 0, 0, 1);
+		switch(instance.windowOrientation)
 		{
 		case 0:
 			break;
 		case 90:
-			worldToScreenQ = Quaternion.AngleAxis(-Mathf.PI / 2, new Vector3(0, 0, 1));
+			instance.worldToScreenQ = Quaternion.AngleAxis(-Mathf.PI / 2, new Vector3(0, 0, 1));
 			break;
 		case -90:
-			worldToScreenQ = Quaternion.AngleAxis(Mathf.PI / 2, new Vector3(0, 0, 1));
+			instance.worldToScreenQ = Quaternion.AngleAxis(Mathf.PI / 2, new Vector3(0, 0, 1));
 			break;
 		case 180:
 			// TODO
 			break;
 		}
-		inverseWorldToScreenQ = Quaternion.Inverse(worldToScreenQ);
+		instance.inverseWorldToScreenQ = Quaternion.Inverse(instance.worldToScreenQ);
 	}
 
 	void Awake()
 	{
+		if(instance != null)
+			UnityEngine.Debug.LogError("More than an instance of SensorFusion detected!");
+		instance = this;
+
 		if(SystemInfo.supportsGyroscope)
 		{
-			filter = new ComplementaryFilter(.98f, PREDICTION_TIME);
+			filter = new ComplementaryFilter(.98f);
 			Input.gyro.enabled = true;
+			Input.gyro.updateInterval = 0.0167f; // Set the update interval to it's highest value (60 Hz)
 		}
 		else
 		{
-			filter = new ComplementaryFilter(.5f, PREDICTION_TIME);
+			filter = new ComplementaryFilter(.5f);
 		}
-		posePredictor = new PosePredictor(PREDICTION_TIME);
+		posePredictor = new PosePredictor();
 
 		filterToWorldQ = Quaternion.AngleAxis(-Mathf.PI / 2, new Vector3(1, 0, 0));
 
@@ -93,15 +100,37 @@ public class SensorFusion : MonoBehaviour
 		Recenter();
 	}
 
+	Quaternion previousRotation;
 	void LateUpdate()
 	{
-		Vector3 accGravity = Input.acceleration; // INCLUDING GRAVITY
+		// DEBUG
+		/*
+        Vector3 accGravity = -transform.up;
+        Vector3 deltaAngles = new Vector3(Mathf.DeltaAngle(transform.rotation.eulerAngles.x, previousRotation.eulerAngles.x), 0, 0);
+        previousRotation = transform.rotation;
+        Vector3 rotRate = deltaAngles * 60;
+        if(rotRate != Vector3.zero)
+            Debug.Log(rotRate);
+        */
+		//
 
-		Vector3 rotRate = Input.gyro.rotationRate;
+		Vector3 accGravity = Input.acceleration; // INCLUDING GRAVITY
+		//ROTATION AXIS? ALL 3 TOGETHER
+		//Vector3 rotRate = Input.gyro.rotationRate * Mathf.Rad2Deg;
+		Vector3 rotRate = new Vector3 (Input.gyro.rotationRate.x, 0, 0) * Mathf.Rad2Deg;
 
 		float time = Time.time;
 
+		/*
 		float deltaS = time - previousTime;
+        if(deltaS <= Util.MIN_TIMESTEP || deltaS > Util.MAX_TIMESTEP)
+        {
+            Debug.Log("Invalid timestamps detected. Time step between successive " +
+                         "gyroscope sensor samples is very small or not monotonic");
+            previousTime = time;
+            return;
+        }
+        */
 
 		accelerometer = -accGravity;
 		gyroscope = rotRate;
@@ -141,12 +170,10 @@ public class SensorFusion : MonoBehaviour
 		Vector3 measuredGravity = new Vector3();
 
 		float accelGyroFactor;
-		float predictionTime;
 
-		public ComplementaryFilter(float accelGyroFactor, float predictionTime)
+		public ComplementaryFilter(float accelGyroFactor)
 		{
 			this.accelGyroFactor = accelGyroFactor;
-			this.predictionTime = predictionTime;
 		}
 
 		public void AddAccelerationSample(Vector3 value, float time)
@@ -208,6 +235,7 @@ public class SensorFusion : MonoBehaviour
 
 			// SLERP factor: 0 is pure gyro, 1 is pure accel.
 			filterQ = Quaternion.Slerp(filterQ, targetQ, 1 - accelGyroFactor);
+
 			previousFilterQ = filterQ;
 
 			//
@@ -264,21 +292,17 @@ public class SensorFusion : MonoBehaviour
 		Also see: http://msl.cs.uiuc.edu/~lavalle/papers/LavYerKatAnt14.pdf
 		*/
 
-		float predictionTime;
 		Quaternion previousQ = new Quaternion();
 		float previousTime;
 		Quaternion deltaQ = new Quaternion();
 		Quaternion outQ = new Quaternion();
 
-		public PosePredictor(float predictionTime)
+		public PosePredictor()
 		{
-			this.predictionTime = predictionTime;
 		}
 
 		public Quaternion GetPrediction(Quaternion currentQ, Vector3 gyro, float time)
 		{
-			Debug.Log(currentQ);
-
 			if(previousTime == 0)
 			{
 				previousQ = currentQ;
@@ -302,7 +326,8 @@ public class SensorFusion : MonoBehaviour
 			}
 
 			// Get the predicted angle based on the time delta and latency.
-			float predictAngle = predictionTime;
+			//float deltaT = time - previousTime;
+			float predictAngle = angularSpeed * SensorFusion.instance.predictionTime;
 
 			deltaQ = Quaternion.AngleAxis(predictAngle, axis);
 			outQ = previousQ;
