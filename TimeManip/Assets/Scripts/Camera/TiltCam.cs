@@ -7,7 +7,7 @@ public class TiltCam : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		Input.gyro.enabled = true; 
 	}
 	
 	void FixedUpdate(){
