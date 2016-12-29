@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: 6fb0d5820d6d99649a02b03901367834
+timeCreated: 1483033934
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box001
+    100002: Box002
+    100004: Box003
+    100006: Box004
+    100008: Cabine
+    100010: "CabineCot\xE9"
+    100012: Chassis
+    100014: Commande
+    100016: Cylinder003
+    100018: Cylinder004
+    100020: Cylinder005
+    100022: Cylinder006
+    100024: Cylinder007
+    100026: Cylinder008
+    100028: Cylinder009
+    100030: Cylinder010
+    100032: Cylinder011
+    100034: Cylinder012
+    100036: Cylinder014
+    100038: Cylinder015
+    100040: Cylinder016
+    100042: Cylinder017
+    100044: Grande roues
+    100046: Line001
+    100048: Line002
+    100050: Parre-choque
+    100052: Parre-choque 1
+    100054: Roues
+    100056: Roues 002
+    100058: Roues 1
+    100060: Roues001
+    100062: Sphere001
+    100064: //RootNode
+    400000: Box001
+    400002: Box002
+    400004: Box003
+    400006: Box004
+    400008: Cabine
+    400010: "CabineCot\xE9"
+    400012: Chassis
+    400014: Commande
+    400016: Cylinder003
+    400018: Cylinder004
+    400020: Cylinder005
+    400022: Cylinder006
+    400024: Cylinder007
+    400026: Cylinder008
+    400028: Cylinder009
+    400030: Cylinder010
+    400032: Cylinder011
+    400034: Cylinder012
+    400036: Cylinder014
+    400038: Cylinder015
+    400040: Cylinder016
+    400042: Cylinder017
+    400044: Grande roues
+    400046: Line001
+    400048: Line002
+    400050: Parre-choque
+    400052: Parre-choque 1
+    400054: Roues
+    400056: Roues 002
+    400058: Roues 1
+    400060: Roues001
+    400062: Sphere001
+    400064: //RootNode
+    2300000: Box001
+    2300002: Box002
+    2300004: Box003
+    2300006: Box004
+    2300008: Cabine
+    2300010: "CabineCot\xE9"
+    2300012: Chassis
+    2300014: Commande
+    2300016: Cylinder003
+    2300018: Cylinder004
+    2300020: Cylinder005
+    2300022: Cylinder006
+    2300024: Cylinder007
+    2300026: Cylinder008
+    2300028: Cylinder009
+    2300030: Cylinder010
+    2300032: Cylinder011
+    2300034: Cylinder012
+    2300036: Cylinder014
+    2300038: Cylinder015
+    2300040: Cylinder016
+    2300042: Cylinder017
+    2300044: Grande roues
+    2300046: Line001
+    2300048: Line002
+    2300050: Parre-choque
+    2300052: Parre-choque 1
+    2300054: Roues
+    2300056: Roues 002
+    2300058: Roues 1
+    2300060: Roues001
+    2300062: Sphere001
+    3300000: Box001
+    3300002: Box002
+    3300004: Box003
+    3300006: Box004
+    3300008: Cabine
+    3300010: "CabineCot\xE9"
+    3300012: Chassis
+    3300014: Commande
+    3300016: Cylinder003
+    3300018: Cylinder004
+    3300020: Cylinder005
+    3300022: Cylinder006
+    3300024: Cylinder007
+    3300026: Cylinder008
+    3300028: Cylinder009
+    3300030: Cylinder010
+    3300032: Cylinder011
+    3300034: Cylinder012
+    3300036: Cylinder014
+    3300038: Cylinder015
+    3300040: Cylinder016
+    3300042: Cylinder017
+    3300044: Grande roues
+    3300046: Line001
+    3300048: Line002
+    3300050: Parre-choque
+    3300052: Parre-choque 1
+    3300054: Roues
+    3300056: Roues 002
+    3300058: Roues 1
+    3300060: Roues001
+    3300062: Sphere001
+    4300000: Chassis
+    4300002: Parre-choque
+    4300004: Parre-choque 1
+    4300006: Cylinder003
+    4300008: "CabineCot\xE9"
+    4300010: Cabine
+    4300012: Commande
+    4300014: Box001
+    4300016: Cylinder004
+    4300018: Cylinder005
+    4300020: Roues
+    4300022: Roues 1
+    4300024: Grande roues
+    4300026: Cylinder006
+    4300028: Cylinder007
+    4300030: Cylinder008
+    4300032: Cylinder009
+    4300034: Cylinder010
+    4300036: Cylinder011
+    4300038: Cylinder012
+    4300040: Sphere001
+    4300042: Box002
+    4300044: Line001
+    4300046: Box003
+    4300048: Roues 002
+    4300050: Roues001
+    4300052: Cylinder014
+    4300054: Cylinder015
+    4300056: Cylinder016
+    4300058: Cylinder017
+    4300060: Line002
+    4300062: Box004
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
