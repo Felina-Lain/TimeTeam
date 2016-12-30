@@ -18,7 +18,8 @@ public class GravityChange : MonoBehaviour {
 	void Update() {
 		
 		// normalize axis
-		Physics.gravity=new Vector3( Input.acceleration.x, Input.acceleration.z,	Input.acceleration.y)*g * speed;
+		Physics.gravity = new Vector3( Input.acceleration.x, Input.acceleration.z,	Input.acceleration.y)*g * speed;
+
 	}
 		
 }

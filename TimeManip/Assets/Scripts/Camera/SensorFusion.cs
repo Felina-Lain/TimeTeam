@@ -117,7 +117,7 @@ public class SensorFusion : MonoBehaviour
 		Vector3 accGravity = Input.acceleration; // INCLUDING GRAVITY
 		//ROTATION AXIS? ALL 3 TOGETHER
 		//Vector3 rotRate = Input.gyro.rotationRate * Mathf.Rad2Deg;
-		Vector3 rotRate = new Vector3 (Input.gyro.rotationRate.x, 0, 0) * Mathf.Rad2Deg;
+		Vector3 rotRate = new Vector3 (Input.gyro.rotationRate.x, Input.gyro.rotationRate.z, 0) * Mathf.Rad2Deg;
 
 		float time = Time.time;
 
@@ -327,7 +327,7 @@ public class SensorFusion : MonoBehaviour
 
 			// Get the predicted angle based on the time delta and latency.
 			//float deltaT = time - previousTime;
-			float predictAngle = angularSpeed * SensorFusion.instance.predictionTime;
+			float predictAngle = angularSpeed * (SensorFusion.instance.predictionTime/100);
 
 			deltaQ = Quaternion.AngleAxis(predictAngle, axis);
 			outQ = previousQ;
