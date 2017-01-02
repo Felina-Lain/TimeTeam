@@ -53,6 +53,7 @@ public class IsoDrag : MonoBehaviour {
 		if(dragState == 1)
 		{
 			GetComponent<Rigidbody> ().isKinematic = true;
+			GetComponent<Rigidbody> ().useGravity = false;
 			//turn off some scripts
 			if (this.name.Contains ("Red") ||this.name.Contains ("Green")  ) {
 				this.GetComponent<MoveToWaypoints> ().enabled = false;
@@ -81,6 +82,7 @@ public class IsoDrag : MonoBehaviour {
 			//throw the item 
 			if (GetComponent<CubeManager> ().myGroup != CubeGroups.Black) {
 				GetComponent<Rigidbody> ().isKinematic = false;
+				GetComponent<Rigidbody> ().useGravity = true;
 			}
 
 			if (touchPos.Count > 11) {

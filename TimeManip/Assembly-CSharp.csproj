@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GravityChange.cs" />
+     <Compile Include="Assets\Scripts\GravityGyro.cs" />
      <Compile Include="Assets\Scripts\IsoDrag.cs" />
      <Compile Include="Assets\Scripts\OLD\PinchZoom.cs" />
      <Compile Include="Assets\Scripts\OLD\RotateCam.cs" />
