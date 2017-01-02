@@ -29,9 +29,9 @@ public class CubeManager : MonoBehaviour {
 		}
 		if (!startCube) {
 			
-			float _a = GetComponentInChildren<MeshRenderer> ().material.color.a;
+			float _a = GetComponent<MeshRenderer> ().material.color.a;
 			_a  -= (lifeTime * Time.deltaTime);
-			GetComponentInChildren<MeshRenderer> ().material.color = new Color (GetComponentInChildren<MeshRenderer> ().material.color.r, GetComponentInChildren<MeshRenderer> ().material.color.g, GetComponentInChildren<MeshRenderer> ().material.color.b, _a);
+			GetComponent<MeshRenderer> ().material.color = new Color (GetComponent<MeshRenderer> ().material.color.r, GetComponent<MeshRenderer> ().material.color.g, GetComponent<MeshRenderer> ().material.color.b, _a);
 			if (_a <= 0) {
 				Destroy (this.gameObject);
 			}
