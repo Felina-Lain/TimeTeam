@@ -13,7 +13,7 @@ public class CamLock : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		transform.LookAt (_pivot);
+		transform.LookAt (_pivot, transform.up);
 	
 	}
 }
