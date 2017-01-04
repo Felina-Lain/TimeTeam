@@ -112,7 +112,9 @@ public class SensorFusion : MonoBehaviour
 		*/
 
 		Vector3 accGravity = Input.acceleration; // INCLUDING GRAVITY
+		//Vector3 accGravity = new Vector3(0,0,0);
 		Vector3 rotRate = Input.gyro.rotationRate * Mathf.Rad2Deg;
+		//Vector3 rotRate = new Vector3(Input.gyro.rotationRate.y,Input.gyro.rotationRate.z,-Input.gyro.rotationRate.x) * Mathf.Rad2Deg;
 
 		float time = Time.time;
 

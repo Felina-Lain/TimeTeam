@@ -8,10 +8,13 @@ public class GravityGyro : MonoBehaviour {
 
 	void Start () {
 		grav_ini = Physics.gravity;
+		SensorFusion.Recenter();
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-		Physics.gravity = grav_ini + (new Vector3(Input.gyro.rotationRate.y,Input.gyro.rotationRate.z,-Input.gyro.rotationRate.x)*_speed);
+		Physics.gravity = grav_ini + (new Vector3(Input.gyro.rotationRate.y/5,Input.gyro.rotationRate.z/5,-Input.gyro.rotationRate.x/5)*_speed);
+		//Physics.gravity = grav_ini + (new Vector3(SensorFusion.GetOrientation().eulerAngles.x, 0, 0)) *_speed;
 	}
 }
