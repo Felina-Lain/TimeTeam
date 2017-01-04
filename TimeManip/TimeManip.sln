@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{29788D29-9FB9-AC96-D103-B130C772CC2A}") = "TimeManip", "Assembly-CSharp.csproj", "{317C76C4-19D3-CDBE-D6C1-135DD26876A2}"
 EndProject
+Project("{29788D29-9FB9-AC96-D103-B130C772CC2A}") = "TimeManip", "Assembly-CSharp-Editor.csproj", "{982DE427-34EA-28B6-0C18-32FCED87C147}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{317C76C4-19D3-CDBE-D6C1-135DD26876A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{317C76C4-19D3-CDBE-D6C1-135DD26876A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{317C76C4-19D3-CDBE-D6C1-135DD26876A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982DE427-34EA-28B6-0C18-32FCED87C147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982DE427-34EA-28B6-0C18-32FCED87C147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982DE427-34EA-28B6-0C18-32FCED87C147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982DE427-34EA-28B6-0C18-32FCED87C147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

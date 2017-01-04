@@ -47,7 +47,6 @@ C:\Users\FelinaLain\Desktop\Nouveau dossier\Time Manip\obj\Debug\Assembly-CSharp
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Assembly-CSharp-Editor.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\nunit.framework.dll
-C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\ShaderForge.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEditor.Advertisements.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEditor.dll
@@ -74,9 +73,7 @@ C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Mono.
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEditor.iOS.Extensions.Common.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Mono.Cecil.Pdb.dll
-C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Assembly-CSharp.pdb
-C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.pdb
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEngine.xml
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEditor.xml
 C:\Users\FelinaLain\Documents\SourceTree\TimeTeam\TimeManip\Temp\bin\Debug\UnityEditor.Advertisements.xml

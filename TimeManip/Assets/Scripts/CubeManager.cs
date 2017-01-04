@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
+[Serializable]
 public enum CubeGroups {Red, Boing, Black, Green, Roll, Spawner}
 
 public class CubeManager : MonoBehaviour {
