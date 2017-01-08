@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\CubeWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CubeManager.cs">
     <Files>
-      <File FileName="Assets\Editor\CubeWindow.cs" Line="29" Column="78" />
-      <File FileName="Assets\Scripts\Camera\CamLock.cs" Line="16" Column="41" />
+      <File FileName="Assets\Scripts\CubeManager.cs" Line="15" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
