@@ -7,12 +7,10 @@ public enum CubeGroups {Red, Boing, Black, Green, Roll, Spawner}
 
 public class CubeManager : MonoBehaviour {
 
-	//[Header("Cube present at launch")]
 	public bool startCube;
-	//[Header("Type of Cube")]
 	public CubeGroups myGroup;
 
-	//[Header("Smaller Number means longer life")]
+	[Header("Smaller Number means longer life")]
 	public float lifeTime;
 
 

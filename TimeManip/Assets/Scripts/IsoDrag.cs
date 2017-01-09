@@ -40,13 +40,19 @@ public class IsoDrag : MonoBehaviour {
 			mPosWorld1 = Camera.main.ScreenToWorldPoint(mPos1);
 		
 			// check if mouse is in bounds
-			if(GetComponent<Collider>().bounds.Contains(mPosWorld1))
-			{
+			if (GetComponent<Collider> ().bounds.Contains (mPosWorld1) && this.GetComponent<CubeManager> ().myGroup != CubeGroups.Boing) {
 				dragState = 1;
 				startPos = transform.position;
 				delta = mPosWorld1 - transform.position;
 		
 			}
+			//else {
+			//	
+			//	Vector3 direction = transform.position - Camera.main.transform.position;
+			//	direction.Normalize ();
+			//	GetComponent<Rigidbody> ().AddForce (direction * 300f, ForceMode.Impulse);
+			//
+			//	}
 		}
 
 		// drag the object if enabled
@@ -55,11 +61,11 @@ public class IsoDrag : MonoBehaviour {
 			GetComponent<Rigidbody> ().isKinematic = true;
 			GetComponent<Rigidbody> ().useGravity = false;
 			//turn off some scripts
-			if (this.name.Contains ("Red") ||this.name.Contains ("Green")  ) {
+			if (this.GetComponent<CubeManager>().myGroup == CubeGroups.Red ||this.GetComponent<CubeManager>().myGroup == CubeGroups.Green) {
 				this.GetComponent<MoveToWaypoints> ().enabled = false;
 			}
 			//move the object and pattern if needed
-			if(this.name.Contains("Green")){
+			if(this.GetComponent<CubeManager>().myGroup == CubeGroups.Green){
 
 				this.transform.parent.transform.position = new Vector3 (mPosWorld1.x - delta.x, transform.parent.transform.position.y , mPosWorld1.z - delta.z);
 
@@ -95,7 +101,7 @@ public class IsoDrag : MonoBehaviour {
 			dragState = 0;
 
 			//turn the offed scripts
-			if (this.name.Contains ("Red") ||this.name.Contains ("Green")  ){
+			if (this.GetComponent<CubeManager>().myGroup == CubeGroups.Red ||this.GetComponent<CubeManager>().myGroup == CubeGroups.Green){
 				this.GetComponent<MoveToWaypoints> ().enabled = true;
 				}
 			touchPos = new List<Vector3>();
