@@ -46,20 +46,20 @@ public class IsoDrag : MonoBehaviour {
 				delta = mPosWorld1 - transform.position;
 		
 			}
-			//else {
-			//	
-			//	Vector3 direction = transform.position - Camera.main.transform.position;
-			//	direction.Normalize ();
-			//	GetComponent<Rigidbody> ().AddForce (direction * 300f, ForceMode.Impulse);
-			//
-			//	}
+			else if(GetComponent<Collider> ().bounds.Contains (mPosWorld1) && this.GetComponent<CubeManager> ().myGroup == CubeGroups.Boing){
+				
+				Vector3 direction = transform.position - Camera.main.transform.position;
+				direction.Normalize ();
+				GetComponent<Rigidbody> ().AddForce (direction * 200f, ForceMode.Impulse);
+			
+				}
 		}
 
 		// drag the object if enabled
 		if(dragState == 1)
 		{
-			GetComponent<Rigidbody> ().isKinematic = true;
-			GetComponent<Rigidbody> ().useGravity = false;
+			this.GetComponent<Rigidbody> ().isKinematic = true;
+			this.GetComponent<Rigidbody> ().useGravity = false;
 			//turn off some scripts
 			if (this.GetComponent<CubeManager>().myGroup == CubeGroups.Red ||this.GetComponent<CubeManager>().myGroup == CubeGroups.Green) {
 				this.GetComponent<MoveToWaypoints> ().enabled = false;
@@ -72,7 +72,7 @@ public class IsoDrag : MonoBehaviour {
 			}
 
 			// move the object with mouse if normal
-			transform.position = new Vector3 (mPosWorld1.x - delta.x , transform.position.y , mPosWorld1.z - delta.z);
+			this.transform.position = new Vector3 (mPosWorld1.x - delta.x , mPosWorld1.y - delta.y, mPosWorld1.z - delta.z);
 
 			//store touch position for throw
 			touchPos.Add(mPosWorld1);
@@ -86,15 +86,15 @@ public class IsoDrag : MonoBehaviour {
 		if(dragState == 1 && Input.GetMouseButtonUp(0))
 		{	
 			//throw the item 
-			if (GetComponent<CubeManager> ().myGroup != CubeGroups.Black) {
-				GetComponent<Rigidbody> ().isKinematic = false;
-				GetComponent<Rigidbody> ().useGravity = true;
+			if (this.GetComponent<CubeManager> ().myGroup != CubeGroups.Black) {
+				this.GetComponent<Rigidbody> ().isKinematic = false;
+				this.GetComponent<Rigidbody> ().useGravity = true;
 			}
 
 			if (touchPos.Count > 11) {
 				Vector3 direction = (touchPos [touchPos.Count - 1] - touchPos [touchPos.Count - 10]);
 				direction.Normalize ();
-				GetComponent<Rigidbody> ().AddForce (direction * 700f, ForceMode.Impulse);
+				this.GetComponent<Rigidbody> ().AddForce (direction * 700f, ForceMode.Impulse);
 			}
 
 			//turn off drag

@@ -4,17 +4,17 @@ using System.Collections;
 
 public class GyroCam : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		SensorFusion.Recenter();
-	}
+	//// Use this for initialization
+	//void Start () {
+	//	SensorFusion.Recenter();
+	//}
+	//
+	//// Update is called once per frame
+	//void Update () {
+	//	transform.localRotation = SensorFusion.GetOrientation();
+	//}
 
-	// Update is called once per frame
-	void Update () {
-		transform.localRotation = SensorFusion.GetOrientation();
-	}
 
-	/*
 	//Time to double tap
 	[SerializeField] private float _cooldown = 0.5f;
 	//Speed of advance
@@ -44,18 +44,18 @@ public class GyroCam : MonoBehaviour {
 	{
 
 
-		float newPositionx = Mathf.SmoothDamp(transform.position.x, Input.gyro.rotationRateUnbiased.x, ref _velocity, damp_speed);
-		float newPositiony = Mathf.SmoothDamp(transform.position.y, Input.gyro.rotationRateUnbiased.y, ref _velocity, damp_speed);
-		transform.Rotate (newPositionx, 0, newPositiony);
-		//float newPositionx = Input.gyro.rotationRateUnbiased.x;
-		//float newPositiony = Input.gyro.rotationRateUnbiased.y;
-		//transform.localRotation = Quaternion.Euler(newPositionx,0,newPositiony);
+		//float newPositionx = Mathf.SmoothDamp(transform.position.x, Input.gyro.rotationRateUnbiased.x, ref _velocity, damp_speed);
+		//float newPositiony = Mathf.SmoothDamp(transform.position.y, Input.gyro.rotationRateUnbiased.y, ref _velocity, damp_speed);
+		//transform.Rotate (newPositionx, 0, newPositiony);
+		float newPositionx = Input.gyro.rotationRate.x;
+		float newPositiony = Input.gyro.rotationRate.y;
+		transform.localRotation = Quaternion.Euler(newPositionx,0,newPositiony);
 	
 	}
 
 	public void ResetGyro () {
 
 		transform.rotation = initialRotation;
-	}*/
+	}
 		
 }
