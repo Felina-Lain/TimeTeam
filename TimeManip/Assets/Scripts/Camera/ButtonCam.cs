@@ -14,13 +14,42 @@ public class ButtonCam : MonoBehaviour {
 	void Update ()
 	{
 		if (_left) {
-			transform.Rotate (-Vector3.right * Time.deltaTime * speed);
+			//transform.Rotate (-Vector3.right * Time.deltaTime * speed);
+
+			float rotationY = transform.localEulerAngles.x - speed * Time.deltaTime;
+			if(transform.localEulerAngles.x < 180f)
+			{
+				rotationY = Mathf.Clamp(rotationY, -75f, 75.0f);
+			}
+			if(transform.localEulerAngles.x > 180f)
+			{
+				rotationY = Mathf.Clamp(rotationY , 295f, 360f);
+			}
+
+			transform.localEulerAngles = new Vector3(rotationY,transform.localEulerAngles.y , transform.localEulerAngles.z);
+
 		} else if (_right) {
-			transform.Rotate (Vector3.right * Time.deltaTime * speed);
+			//transform.Rotate (Vector3.right * Time.deltaTime * speed);
+
+			float rotationY = transform.localEulerAngles.x + speed * Time.deltaTime;
+			if(transform.localEulerAngles.x < 180f)
+			{
+				rotationY = Mathf.Clamp(rotationY, -75f, 75.0f);
+			}
+			if(transform.localEulerAngles.x > 180f)
+			{
+				rotationY = Mathf.Clamp(rotationY , 295f, 360f);
+			}
+
+			transform.localEulerAngles = new Vector3(rotationY,transform.localEulerAngles.y , transform.localEulerAngles.z);
+
 		} else if (_up) {
-			transform.Rotate (Vector3.up * Time.deltaTime * speed);
+			//transform.Rotate (Vector3.up * Time.deltaTime * speed);
+			float rotationY = transform.localEulerAngles.y + speed * Time.deltaTime;
+			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x ,rotationY, 0);
 		} else if (_down) {
-			transform.Rotate (-Vector3.up * Time.deltaTime * speed);
+			float rotationY = transform.localEulerAngles.y - speed * Time.deltaTime;
+			transform.localEulerAngles = new Vector3(transform.localEulerAngles.x ,rotationY, 0);
 		}
 	}
 
