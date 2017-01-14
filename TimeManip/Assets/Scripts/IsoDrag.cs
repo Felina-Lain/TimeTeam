@@ -12,6 +12,8 @@ public class IsoDrag : MonoBehaviour {
 	private Vector3 mPos1;
 	private Vector3 mPosWorld1;
 
+	public float pokeforce;
+
 	public List<Vector3> touchPos = new List<Vector3>();
 
 	public void Start()
@@ -50,7 +52,7 @@ public class IsoDrag : MonoBehaviour {
 				
 				Vector3 direction = transform.position - Camera.main.transform.position;
 				direction.Normalize ();
-				GetComponent<Rigidbody> ().AddForce (direction * 200f, ForceMode.Impulse);
+				GetComponent<Rigidbody> ().AddForce (direction * pokeforce, ForceMode.Impulse);
 			
 				}
 		}
