@@ -57,12 +57,12 @@ public class GravityGyro : MonoBehaviour {
 		case 2:
 			gravgyroup -= Mathf.Abs ((float)System.Math.Round (Input.gyro.rotationRate.z, 1));
 			//print ("case2");
-			if (gravgyroup <= -50f) {UpDown = 1;} 
+			if (gravgyroup <= -100f) {UpDown = 1;} 
 			break;
 		case 1:
 			gravgyroup += Mathf.Abs ((float)System.Math.Round (Input.gyro.rotationRate.z, 1));
 			//print ("case1");
-			if (Mathf.Abs (gravgyroup) >= 150f) {UpDown = 2;} 
+			if (Mathf.Abs (gravgyroup) >= 120f) {UpDown = 2;} 
 			break;
 		default:
 			Debug.Log("NOTHING");
