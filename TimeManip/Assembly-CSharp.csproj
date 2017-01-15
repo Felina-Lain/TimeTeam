@@ -47,16 +47,16 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\ButtonCam.cs" />
      <Compile Include="Assets\Scripts\Camera\CamLock.cs" />
-     <Compile Include="Assets\Scripts\Camera\GyroCam.cs" />
+     <Compile Include="Assets\Scripts\Camera\PinchZoom.cs" />
      <Compile Include="Assets\Scripts\Camera\SensorFusion.cs" />
-     <Compile Include="Assets\Scripts\Camera\TiltCam.cs" />
      <Compile Include="Assets\Scripts\CubeManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GravityGyro.cs" />
      <Compile Include="Assets\Scripts\IsoDrag.cs" />
      <Compile Include="Assets\Scripts\OLD\GravityChange.cs" />
-     <Compile Include="Assets\Scripts\OLD\PinchZoom.cs" />
+     <Compile Include="Assets\Scripts\OLD\GyroCam.cs" />
      <Compile Include="Assets\Scripts\OLD\RotateCam.cs" />
+     <Compile Include="Assets\Scripts\OLD\TiltCam.cs" />
      <Compile Include="Assets\Scripts\SpawnerCube.cs" />
      <Compile Include="Assets\Scripts\Tools\VizuTool.cs" />
      <Compile Include="Assets\Scripts\TrashCan.cs" />
