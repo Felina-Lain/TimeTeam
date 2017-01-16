@@ -14,14 +14,16 @@ public class GravityGyro : MonoBehaviour {
 
 	public float _speed;
 	public float _toPlafond = 100;
-	public int UpDown = 1;
+	public int UpDown = 0;
 
 	void Awake () {
 		Input.gyro.enabled = true;
 		grav_ini = Physics.gravity;
 		tempy = 0 - (float)System.Math.Round(Input.acceleration.y,1);
 		tempx = 0 - (float)System.Math.Round(Input.acceleration.x,1);
+		gyrouptmp = (float)System.Math.Round (Input.gyro.rotationRate.z);
 		gravgyroup = 0;
+		UpDown = 0;
 
 
 
@@ -31,7 +33,9 @@ public class GravityGyro : MonoBehaviour {
 		
 		tempy = 0 - (float)System.Math.Round(Input.acceleration.y,1);
 		tempx = 0 - (float)System.Math.Round(Input.acceleration.x,1);
+		gyrouptmp = (float)System.Math.Round (Input.gyro.rotationRate.z);
 		gravgyroup = 0;
+		UpDown = 0;
 		Input.gyro.enabled = true;
 
 	}
@@ -39,46 +43,88 @@ public class GravityGyro : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		print ("gyro " + gravgyroup);
+
+		print ("direction " + gyrouptmp);
+
+		print ("gravity " + Physics.gravity.y);
+
 		//Physics.gravity = grav_ini + (new Vector3((float)System.Math.Round(Input.gyro.rotationRate.y,2),(float)System.Math.Round(Input.gyro.rotationRate.z,2),(float)System.Math.Round(-Input.gyro.rotationRate.x,2))*_speed);
 
 
 		//gravity tilt
-		Physics.gravity = grav_ini + (new Vector3((float)System.Math.Round(tempx + Input.acceleration.x,1),(gravgyroup*3/_speed),(float)System.Math.Round(tempy + Input.acceleration.y,1))*_speed); 
+		Physics.gravity = grav_ini + (new Vector3((float)System.Math.Round(tempx + Input.acceleration.x,1),(gravgyroup),(float)System.Math.Round(tempy + Input.acceleration.y,1))*_speed); 
 
-		//check gyro state to switch to ceiling if needed
-		gyrouptmp += (float)System.Math.Round (Input.gyro.rotationRate.z);
-		if (gyrouptmp > 320f || gyrouptmp < -320f) {
-			gyrouptmp = 0f;
+	
+
+		//check if we moved the gyro
+		if (gyrouptmp != (float)System.Math.Round (Input.gyro.rotationRate.z)) {			
+			//check if we're up or down already
+			if (0f > Physics.gravity.y && Physics.gravity.y >= -150f) {
+				//check what direction we're moving the gyro in
+
+				if ((float)System.Math.Round (Input.gyro.rotationRate.z) > 0 && gyrouptmp > 0) {//we're moving always to the left
+					
+					UpDown = 1;
+
+				} else if ((float)System.Math.Round (Input.gyro.rotationRate.z) < 0 && gyrouptmp < 0) { //moving always to the right
+					
+					UpDown = 1;
+
+				} else if ((float)System.Math.Round (Input.gyro.rotationRate.z) < 0 && gyrouptmp > 0 && (float)System.Math.Round (Input.gyro.rotationRate.z) != 0 ) { //moving to the right then changing to the left
+					while((float)System.Math.Round (Input.gyro.rotationRate.z) != 0){
+						UpDown = 2;}
+
+				} else if ((float)System.Math.Round (Input.gyro.rotationRate.z) > 0 && gyrouptmp < 0 && (float)System.Math.Round (Input.gyro.rotationRate.z) != 0) { //moving always to the left then changing to the right
+					while((float)System.Math.Round (Input.gyro.rotationRate.z) != 0){
+						UpDown = 2;}
+				}
+
+			} else if (0f < Physics.gravity.y && Physics.gravity.y <= 150f) {
+				//check what direction we're moving the gyro in
+
+				if ((float)System.Math.Round (Input.gyro.rotationRate.z) > 0 && gyrouptmp > 0) {//we're moving always to the left
+
+					UpDown = 2;
+
+				} else if ((float)System.Math.Round (Input.gyro.rotationRate.z) < 0 && gyrouptmp < 0) { //moving always to the right
+
+					UpDown = 2;
+
+				} else if ((float)System.Math.Round (Input.gyro.rotationRate.z) < 0 && gyrouptmp > 0 && (float)System.Math.Round (Input.gyro.rotationRate.z) != 0) { //moving to the right then changing to the left
+					while((float)System.Math.Round (Input.gyro.rotationRate.z) != 0){
+						UpDown = 1;}
+
+				} else if ((float)System.Math.Round (Input.gyro.rotationRate.z) > 0 && gyrouptmp < 0 && (float)System.Math.Round (Input.gyro.rotationRate.z) != 0) { //moving always to the left then changing to the right
+					while((float)System.Math.Round (Input.gyro.rotationRate.z) != 0){
+						UpDown = 1;}
+				}
+			}
+
+			gyrouptmp = (float)System.Math.Round (Input.gyro.rotationRate.z);
+
+		} else if (gyrouptmp == (float)System.Math.Round (Input.gyro.rotationRate.z)) {
+			UpDown = 0;
 		}
 
-		if ( 0f < gyrouptmp && gyrouptmp < 150f) {
-			UpDown = 1;
-		} else if (0f > gyrouptmp && gyrouptmp > -150f) {
-			UpDown = 2;
-		} else if ((150f < gyrouptmp || gyrouptmp < -150f) && (float)System.Math.Round (Input.gyro.rotationRate.z) > 0f ) {
-			UpDown = 3;
-		}else if ((150f < gyrouptmp || gyrouptmp < -150f) && (float)System.Math.Round (Input.gyro.rotationRate.z) < 0f) {
-			UpDown = 4;
-		}
 
+		//switch with states for gravity changes
 		switch(UpDown)
 		{
-		case 4:
-			gravgyroup += (float)System.Math.Round (Input.gyro.rotationRate.z);
-			break;
-
-		case 3:
-			gravgyroup -= (float)System.Math.Round (Input.gyro.rotationRate.z);
-			break;
 
 		case 2:
-			gravgyroup -= (float)System.Math.Round (Input.gyro.rotationRate.z);
+			gravgyroup -= _toPlafond * Time.deltaTime;
 			break;
 
 		case 1:
-			gravgyroup += (float)System.Math.Round (Input.gyro.rotationRate.z);
+			gravgyroup += _toPlafond * Time.deltaTime;
 
 			break;
+
+		case 0:
+			gravgyroup += 0;
+			break;
+
 		default:
 			Debug.Log("NOTHING");
 			break;
@@ -86,11 +132,4 @@ public class GravityGyro : MonoBehaviour {
 
 	}
 
-	public void Pinrt(){
-	
-		print ("gyro " + gravgyroup);
-		print ("temp " + gyrouptmp);
-		print ("stick " + Physics.gravity.y);
-	
-	}
 }
