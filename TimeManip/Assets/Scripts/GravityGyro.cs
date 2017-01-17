@@ -41,7 +41,7 @@ public class GravityGyro : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log ((gravgyroup - grav_ini.y)/_speed *_toPlafond);
+		Debug.Log (Physics.gravity.y);
 
 
 		//gravity tilt

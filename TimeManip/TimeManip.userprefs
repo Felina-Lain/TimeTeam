@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GravityGyro.cs">
     <Files>
-      <File FileName="Assets\Scripts\GravityGyro.cs" Line="33" Column="30" />
+      <File FileName="Assets\Scripts\GravityGyro.cs" Line="39" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
