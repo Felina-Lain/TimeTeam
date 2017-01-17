@@ -12,7 +12,7 @@ public class VizuTool : MonoBehaviour {
 		Gizmos.DrawRay (Vector3.zero,  Physics.gravity);
 
 		//Gizmos.color = Color.blue;
-		//Gizmos.DrawRay (new Vector3(0.3f,0.3f,0.3f),  _maincam.transform.forward*500);
+		//Gizmos.DrawRay (new Vector3(0.3f,0.3f,0.3f),  Input.gyro.attitude.eulerAngles*500);
 		//Gizmos.color = Color.green;
 		//Gizmos.DrawRay (new Vector3(0.3f,0.3f,0.3f),  _maincam.transform.up*500);
 		//Gizmos.color = Color.red;
